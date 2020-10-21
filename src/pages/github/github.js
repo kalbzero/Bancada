@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './github.css'
 class Github extends Component{
     constructor(){
         super();
@@ -21,26 +21,48 @@ class Github extends Component{
 
     render(){
         const {user, repo} = this.state;
-        console.log(repo);
+        
         return <>
-            <div className="row">
-                <div className="col-3">
-                    <p>Meu GitHub Infos</p>
-                    <p>
-                        Login: @{user.login} <br/>
-                    </p>
+           <div className="container">
+                 <div className="row">
+                    <div className="col-3">
+                        <p className="titulo">Meu GitHub Infos</p>
+                        <div>
+                            <img  className="circle-photo" src={user.avatar_url} alt="Profile photo"></img>
+                            <div>
+                                <span className="font-weight-bold">Login:</span> @{user.login} <br/>
+                                <span className="font-weight-bold">Name:</span> {user.name} <br/>
+                                <span className="font-weight-bold">Company:</span> {user.company} <br/>
+                                <span className="font-weight-bold">Location:</span> {user.lcoation} <br/>
+                                <div className="row">
+                                    <div className="col-6">
+                                        Seguidores
+                                        <p>{user.followers}</p>
+                                    </div>
+                                    <div className="col-6">
+                                        Seguindo
+                                        <p>{user.following}</p>
+                                    </div>
+                                </div>
+                                <p>
+                                        Bio:<br/>
+                                        {user.bio}
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-9">
+                    {repo.map(
+                        repositorio => 
+                            <div className="card bg-card">
+                                Nome do Repositorio: {repositorio.name} <br/>
+                                Descrição: {repositorio.description} <br/>
+                                Link do Repositório: <a href={repositorio.html_url}>Clique Aqui</a>
+                            </div>
+                    )}
+                    </div>
                 </div>
-                <div className="col-9">
-                {repo.map(
-                    repositorio => 
-                        <p>
-                            Nome do Repositorio: {repositorio.name} <br/>
-                            Descrição: {repositorio.description} <br/>
-                            Link do Repositório: <a href={repositorio.html_url}>Clique Aqui</a>
-                        </p>
-                )}
-                </div>
-            </div>
+           </div>
              
         </>;
     }

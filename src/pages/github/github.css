@@ -1,0 +1,15 @@
+.circle-photo {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.bg-card {
+    background-color: lightgray!important;
+    margin: 1rem;
+}
+
+.titulo {
+    font-size: 22px;
+    text-align: center;
+}
