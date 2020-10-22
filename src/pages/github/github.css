@@ -5,11 +5,21 @@
 }
 
 .bg-card {
-    background-color: lightgray!important;
+    background-color: lightgray;
     margin: 1rem;
 }
 
 .titulo {
     font-size: 22px;
     text-align: center;
+}
+
+@media only screen and (max-width: 768px){
+    .bg-card{
+        background-color: yellow;
+        font-size: 24px;
+    }
+    .mobile-text {
+        color: blueviolet
+    }
 }
